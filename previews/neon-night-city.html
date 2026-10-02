@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero Arcade – Neon Night City preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: #05050f; font-family: Rajdhani, "Segoe UI", sans-serif; color: #e8f7ff; }
+  h1 { font-family: Orbitron, sans-serif; text-align: center; margin: 0 0 4px; color: #00f0ff; text-shadow: 0 0 12px #00f0ff; }
+  .sub { text-align: center; color: #8899bb; margin-bottom: 20px; }
+  .row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .phone { width: 360px; height: 740px; border: 2px solid #1c2a55; border-radius: 36px; overflow: hidden; position: relative; padding: 18px 16px;
+    background:
+      linear-gradient(180deg, transparent 60%, rgba(255,0,200,.25)),
+      linear-gradient(90deg, rgba(0,240,255,.06) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(0deg, rgba(0,240,255,.06) 1px, transparent 1px) 0 0/28px 28px,
+      #0a0a22; box-shadow: 0 0 30px rgba(0,240,255,.25); }
+  .skyline { position: absolute; left: 0; right: 0; bottom: 0; height: 90px; opacity: .5;
+    background: linear-gradient(#000,#000) 10px 30px/28px 60px no-repeat, linear-gradient(#000,#000) 50px 10px/36px 80px no-repeat,
+    linear-gradient(#000,#000) 110px 40px/30px 50px no-repeat, linear-gradient(#000,#000) 160px 0/40px 90px no-repeat,
+    linear-gradient(#000,#000) 230px 25px/32px 65px no-repeat, linear-gradient(#000,#000) 290px 45px/50px 45px no-repeat; }
+  .title { font-family: Orbitron, sans-serif; font-weight: 800; font-size: 28px; text-align: center; margin: 4px 0 0; color: #ff2bd6; text-shadow: 0 0 6px #ff2bd6, 0 0 18px #ff2bd6; letter-spacing: 3px; }
+  .gear { position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border: 1px solid #00f0ff; border-radius: 10px; display: grid; place-items: center; box-shadow: 0 0 10px #00f0ff inset, 0 0 8px #00f0ff; }
+  .label { font-family: Orbitron, sans-serif; font-size: 11px; letter-spacing: 3px; color: #00f0ff; margin: 16px 0 8px; text-transform: uppercase; }
+  .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .card { background: rgba(255,255,255,.04); border: 1px solid #2a3a7a; border-radius: 12px; text-align: center; padding: 8px 2px; font-size: 13px; }
+  .card .ic { font-size: 22px; display: block; }
+  .card.sel { border-color: #00f0ff; box-shadow: 0 0 14px #00f0ff, inset 0 0 10px rgba(0,240,255,.4); }
+  .heroes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .hero { border: 1px solid #2a3a7a; border-radius: 12px; text-align: center; padding: 6px 2px; font-size: 12px; background: rgba(255,255,255,.04); }
+  .hero svg { width: 44px; height: 44px; }
+  .hero.sel { border-color: #ff2bd6; box-shadow: 0 0 14px #ff2bd6; }
+  .modes { display: flex; gap: 10px; }
+  .pill { flex: 1; text-align: center; padding: 9px; border-radius: 999px; border: 1px solid #2a3a7a; font-family: Orbitron, sans-serif; font-size: 12px; }
+  .pill.sel { border-color: #39ff88; color: #39ff88; box-shadow: 0 0 12px #39ff88, inset 0 0 8px rgba(57,255,136,.4); }
+  .play { position: absolute; left: 24px; right: 24px; bottom: 100px; text-align: center; padding: 14px; border-radius: 14px; font-family: Orbitron, sans-serif; font-weight: 800; letter-spacing: 4px; color: #05050f; background: linear-gradient(90deg, #00f0ff, #ff2bd6); box-shadow: 0 0 24px rgba(255,43,214,.7); }
+  .score { display: flex; gap: 8px; margin-top: 44px; }
+  .pl { flex: 1; border: 1px solid #2a3a7a; border-radius: 12px; padding: 8px; text-align: center; font-family: Orbitron, sans-serif; font-size: 10px; }
+  .pl b { display: block; font-size: 26px; margin-top: 2px; }
+  .pl.turn { border-color: #ff2bd6; box-shadow: 0 0 14px #ff2bd6; }
+  .pl.turn b { color: #ff2bd6; text-shadow: 0 0 10px #ff2bd6; }
+  .status { text-align: center; margin: 14px 0; font-family: Orbitron, sans-serif; font-size: 13px; letter-spacing: 3px; color: #00f0ff; text-shadow: 0 0 8px #00f0ff; }
+  .board { border: 2px solid #00f0ff; border-radius: 14px; padding: 8px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; background: #070720; box-shadow: 0 0 22px rgba(0,240,255,.5), inset 0 0 16px rgba(0,240,255,.25); }
+  .cell { aspect-ratio: 1; border-radius: 50%; background: #0c0c30; border: 1px solid #1c2a55; display: grid; place-items: center; }
+  .cell svg { width: 80%; height: 80%; }
+  .btns { display: flex; gap: 10px; margin-top: 18px; }
+</style>
+</head>
+<body>
+<h1>HERO ARCADE — NEON NIGHT CITY</h1>
+<div class="sub">Dark city · glowing neon · sleek futuristic UI</div>
+<div class="row">
+  <div class="phone">
+    <div class="gear">⚙</div>
+    <h2 class="title">HERO ARCADE</h2>
+    <div class="label">// 01 Select game</div>
+    <div class="games" id="games"></div>
+    <div class="label">// 02 Select hero</div>
+    <div class="heroes" id="heroes"></div>
+    <div class="label">// 03 Mode</div>
+    <div class="modes"><div class="pill sel">VS AI</div><div class="pill">VS FRIEND</div></div>
+    <div class="play">START</div>
+    <div class="skyline"></div>
+  </div>
+  <div class="phone">
+    <div class="gear">II</div>
+    <h2 class="title">CONNECT 4</h2>
+    <div class="score">
+      <div class="pl turn">AURORA BLAZE<b>3</b></div>
+      <div class="pl">VOLT VANGUARD · AI<b>2</b></div>
+    </div>
+    <div class="status">&gt; YOUR MOVE</div>
+    <div class="board" id="board"></div>
+    <div class="btns"><div class="pill">RESTART</div><div class="pill">QUIT</div></div>
+    <div class="skyline"></div>
+  </div>
+</div>
+<script>
+const H = [
+  {n:'Volt Vanguard', c:'#ffe600', p:'M13 2 4 14h7l-2 8 11-13h-7z'},
+  {n:'Aurora Blaze',  c:'#ff7a1a', p:'M12 2c1 5 6 7 6 12a6 6 0 0 1-12 0c0-3 2-4 3-6 1 2 2 2 3-6z'},
+  {n:'Tidecaller',    c:'#19f0d0', p:'M12 2S5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2z'},
+  {n:'Iron Oak',      c:'#5cff6a', p:'M4 20C4 9 12 4 20 4c0 8-5 16-16 16z'},
+  {n:'Shadow Lynx',   c:'#b06bff', p:'M2 12Q12 3 22 12Q12 21 2 12zM12 8v8'},
+  {n:'Skybolt',       c:'#5cc8ff', p:'M3 15Q9 3 21 8Q12 9 10 14Q8 12 3 15z'}
+];
+const emb = h => `<svg viewBox="0 0 24 24" style="filter:drop-shadow(0 0 4px ${h.c})"><circle cx="12" cy="12" r="10.5" fill="none" stroke="${h.c}" stroke-width="1.5"/><path d="${h.p}" fill="${h.c}" stroke="${h.c}" stroke-width="1" transform="translate(4 4) scale(.66)"/></svg>`;
+const games = [['✕○','Tic-Tac-Toe'],['▦','Bingo 5x5'],['●●','Connect 4'],['▣','Dots & Boxes'],['◈','Memory Match']];
+document.getElementById('games').innerHTML = games.map((g,i)=>`<div class="card ${i==2?'sel':''}"><span class="ic">${g[0]}</span>${g[1]}</div>`).join('');
+document.getElementById('heroes').innerHTML = H.map((h,i)=>`<div class="hero ${i==1?'sel':''}">${emb(h)}<br>${h.n}</div>`).join('');
+const rows = ['.......','.......','...B...','..AB...','..BA.A.','.ABABAB'];
+document.getElementById('board').innerHTML = rows.join('').split('').map(c=>`<div class="cell">${c=='A'?emb(H[1]):c=='B'?emb(H[0]):''}</div>`).join('');
+</script>
+</body>
+</html>

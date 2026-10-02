@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero Arcade – Cartoon Kids preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: #fdf3ff; font-family: Fredoka, "Baloo 2", ui-rounded, "Comic Sans MS", sans-serif; color: #4a3b6b; }
+  h1 { text-align: center; margin: 0 0 4px; color: #ff7eb6; }
+  .sub { text-align: center; color: #8d7bb0; margin-bottom: 20px; }
+  .row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .phone { width: 360px; height: 740px; border: 8px solid #fff; border-radius: 44px; overflow: hidden; position: relative; padding: 18px 16px;
+    background: linear-gradient(#cfeeff, #fff3d9 70%, #d6f5d6); box-shadow: 0 10px 30px rgba(120,90,180,.25); }
+  .cloud { position: absolute; background: #fff; border-radius: 50px; opacity: .9; }
+  .c1 { width: 90px; height: 30px; top: 70px; left: -20px; } .c2 { width: 70px; height: 24px; top: 100px; right: -10px; }
+  .title { font-size: 36px; font-weight: 700; text-align: center; margin: 6px 0 0; color: #ff7eb6; text-shadow: 0 3px 0 #fff, 0 5px 0 #ffc2dc; position: relative; }
+  .gear { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 4px 0 #dcd0f0; z-index: 2; }
+  .label { font-weight: 700; font-size: 17px; margin: 14px 0 8px; position: relative; }
+  .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; }
+  .card { background: #fff; border-radius: 22px; text-align: center; padding: 8px 2px; font-size: 12px; font-weight: 500; box-shadow: 0 4px 0 #dcd0f0; }
+  .card .ic { font-size: 26px; display: block; }
+  .card.sel { background: #ffd86b; box-shadow: 0 4px 0 #e6b530; transform: translateY(-2px) scale(1.04); }
+  .heroes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; }
+  .hero { background: #fff; border-radius: 22px; text-align: center; padding: 6px 2px; font-size: 11px; font-weight: 500; box-shadow: 0 4px 0 #dcd0f0; }
+  .hero svg { width: 48px; height: 48px; }
+  .hero.sel { background: #ffe0ef; box-shadow: 0 4px 0 #ffa8cf; }
+  .modes { display: flex; gap: 10px; position: relative; }
+  .pill { flex: 1; text-align: center; padding: 10px; border-radius: 999px; background: #fff; font-weight: 700; box-shadow: 0 4px 0 #dcd0f0; }
+  .pill.sel { background: #9be8b5; box-shadow: 0 4px 0 #62c98a; }
+  .play { position: absolute; left: 24px; right: 24px; bottom: 24px; text-align: center; padding: 14px; border-radius: 999px; font-size: 28px; font-weight: 700; color: #fff; background: #ff7eb6; box-shadow: 0 6px 0 #d94f8d; }
+  .score { display: flex; gap: 8px; margin-top: 48px; position: relative; }
+  .pl { flex: 1; background: #fff; border-radius: 22px; padding: 8px; text-align: center; font-size: 12px; font-weight: 700; box-shadow: 0 4px 0 #dcd0f0; }
+  .pl b { display: block; font-size: 28px; }
+  .pl.turn { background: #ffe0ef; box-shadow: 0 4px 0 #ffa8cf; }
+  .status { text-align: center; margin: 14px 0; font-size: 20px; font-weight: 700; position: relative; }
+  .board { background: #7fb8ff; border-radius: 28px; padding: 10px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; box-shadow: 0 8px 0 #559de8; position: relative; }
+  .cell { aspect-ratio: 1; border-radius: 50%; background: #eaf4ff; display: grid; place-items: center; }
+  .cell svg { width: 90%; height: 90%; }
+  .btns { display: flex; gap: 10px; margin-top: 22px; position: relative; }
+</style>
+</head>
+<body>
+<h1>HERO ARCADE — CARTOON KIDS</h1>
+<div class="sub">Soft rounded shapes · pastel colors · playful chunky fonts</div>
+<div class="row">
+  <div class="phone">
+    <div class="cloud c1"></div><div class="cloud c2"></div>
+    <div class="gear">⚙️</div>
+    <h2 class="title">Hero Arcade</h2>
+    <div class="label">1. Choose a game</div>
+    <div class="games" id="games"></div>
+    <div class="label">2. Choose your hero</div>
+    <div class="heroes" id="heroes"></div>
+    <div class="label">3. Who plays?</div>
+    <div class="modes"><div class="pill sel">🤖 Computer</div><div class="pill">👫 Friend</div></div>
+    <div class="play">Let's Play! ⭐</div>
+  </div>
+  <div class="phone">
+    <div class="cloud c1"></div><div class="cloud c2"></div>
+    <div class="gear">⏸</div>
+    <h2 class="title">Connect 4</h2>
+    <div class="score">
+      <div class="pl turn">Aurora Blaze<b>3</b></div>
+      <div class="pl">Volt Vanguard 🤖<b>2</b></div>
+    </div>
+    <div class="status">Your turn! 🎉</div>
+    <div class="board" id="board"></div>
+    <div class="btns"><div class="pill">Restart</div><div class="pill">Quit</div></div>
+  </div>
+</div>
+<script>
+const H = [
+  {n:'Volt Vanguard', c:['#ffe066','#5b7cff'], p:'M13 2 4 14h7l-2 8 11-13h-7z'},
+  {n:'Aurora Blaze',  c:['#ffb37a','#ff5fa2'], p:'M12 2c1 5 6 7 6 12a6 6 0 0 1-12 0c0-3 2-4 3-6 1 2 2 2 3-6z'},
+  {n:'Tidecaller',    c:['#8ff0e6','#3a9bdc'], p:'M12 2S5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2z'},
+  {n:'Iron Oak',      c:['#a8e6a1','#8a5a2b'], p:'M4 20C4 9 12 4 20 4c0 8-5 16-16 16z'},
+  {n:'Shadow Lynx',   c:['#d1b3ff','#5b3fa0'], p:'M2 12Q12 3 22 12Q12 21 2 12zM12 8v8'},
+  {n:'Skybolt',       c:['#bfe6ff','#4aa8ff'], p:'M3 15Q9 3 21 8Q12 9 10 14Q8 12 3 15z'}
+];
+const emb = h => `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="${h.c[0]}"/><circle cx="9" cy="8" r="2.2" fill="#fff" opacity=".7"/><path d="${h.p}" fill="${h.c[1]}" transform="translate(4 4) scale(.66)"/></svg>`;
+const games = [['❌','Tic-Tac-Toe'],['🎯','Bingo 5x5'],['🔴','Connect 4'],['🟦','Dots & Boxes'],['🧩','Memory Match']];
+document.getElementById('games').innerHTML = games.map((g,i)=>`<div class="card ${i==2?'sel':''}"><span class="ic">${g[0]}</span>${g[1]}</div>`).join('');
+document.getElementById('heroes').innerHTML = H.map((h,i)=>`<div class="hero ${i==1?'sel':''}">${emb(h)}<br>${h.n}</div>`).join('');
+const rows = ['.......','.......','...B...','..AB...','..BA.A.','.ABABAB'];
+document.getElementById('board').innerHTML = rows.join('').split('').map(c=>`<div class="cell">${c=='A'?emb(H[1]):c=='B'?emb(H[0]):''}</div>`).join('');
+</script>
+</body>
+</html>

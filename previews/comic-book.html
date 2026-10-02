@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero Arcade – Comic Book preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: #222; font-family: "Comic Neue", "Comic Sans MS", sans-serif; color: #111; }
+  h1 { font-family: Bangers, Impact, sans-serif; color: #ffd400; letter-spacing: 2px; text-align: center; margin: 0 0 4px; }
+  .sub { text-align: center; color: #ddd; margin-bottom: 20px; }
+  .row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .phone { width: 360px; height: 740px; border: 6px solid #000; border-radius: 36px; overflow: hidden; position: relative;
+    background-color: #ffe14d; background-image: radial-gradient(#f5a800 22%, transparent 24%); background-size: 14px 14px; padding: 18px 16px; }
+  .title { font-family: Bangers, Impact, sans-serif; font-size: 40px; letter-spacing: 2px; color: #e10600; -webkit-text-stroke: 2px #000; text-shadow: 4px 4px 0 #000; margin: 0; text-align: center; transform: rotate(-2deg); }
+  .gear { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border: 3px solid #000; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 3px 3px 0 #000; font-size: 20px; }
+  .label { font-family: Bangers, Impact, sans-serif; font-size: 20px; letter-spacing: 1px; background: #000; color: #ffd400; display: inline-block; padding: 2px 10px; transform: skew(-8deg); margin: 14px 0 8px; }
+  .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .card { background: #fff; border: 3px solid #000; border-radius: 6px; box-shadow: 4px 4px 0 #000; text-align: center; padding: 6px 2px; font-weight: 700; font-size: 12px; }
+  .card .ic { font-size: 24px; display: block; }
+  .card.sel { background: #00a3ff; color: #fff; transform: rotate(-2deg); }
+  .heroes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .hero { border: 3px solid #000; border-radius: 6px; box-shadow: 3px 3px 0 #000; text-align: center; padding: 6px 2px 4px; font-size: 11px; font-weight: 700; background: #fff; }
+  .hero.sel { outline: 4px solid #e10600; }
+  .hero svg { width: 44px; height: 44px; }
+  .modes { display: flex; gap: 10px; }
+  .bubble { position: relative; flex: 1; background: #fff; border: 3px solid #000; border-radius: 18px; padding: 8px; text-align: center; font-family: Bangers, Impact, sans-serif; font-size: 18px; box-shadow: 3px 3px 0 #000; }
+  .bubble::after { content: ""; position: absolute; left: 20px; bottom: -14px; border: 8px solid transparent; border-top: 12px solid #000; }
+  .bubble.sel { background: #e10600; color: #fff; }
+  .play { position: absolute; left: 24px; right: 24px; bottom: 20px; background: #e10600; color: #fff; border: 4px solid #000; border-radius: 30px; text-align: center; padding: 12px; font-family: Bangers, Impact, sans-serif; font-size: 30px; letter-spacing: 2px; box-shadow: 5px 5px 0 #000; transform: rotate(-1deg); }
+  .score { display: flex; justify-content: space-between; gap: 8px; margin-top: 44px; }
+  .pl { flex: 1; border: 3px solid #000; background: #fff; box-shadow: 3px 3px 0 #000; padding: 6px; text-align: center; font-family: Bangers, Impact, sans-serif; font-size: 16px; }
+  .pl.turn { background: #00a3ff; color: #fff; }
+  .pl b { font-size: 26px; display: block; }
+  .pop { text-align: center; margin: 14px auto 10px; width: 200px; background: #fff; border: 3px solid #000; border-radius: 40% 60% 50% 50%; padding: 6px; font-family: Bangers, Impact, sans-serif; font-size: 24px; color: #e10600; transform: rotate(3deg); box-shadow: 3px 3px 0 #000; }
+  .board { background: #1e40ff; border: 4px solid #000; border-radius: 10px; padding: 8px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; box-shadow: 5px 5px 0 #000; }
+  .cell { aspect-ratio: 1; border-radius: 50%; background: #ffe14d; border: 2px solid #000; display: grid; place-items: center; }
+  .cell svg { width: 70%; height: 70%; }
+  .btns { display: flex; gap: 10px; margin-top: 18px; }
+  .btns .bubble { font-size: 16px; padding: 6px; }
+</style>
+</head>
+<body>
+<h1>HERO ARCADE — COMIC BOOK</h1>
+<div class="sub">Bold outlines · halftone dots · speech-bubble buttons · bright primaries</div>
+<div class="row">
+  <div class="phone">
+    <div class="gear">⚙️</div>
+    <h2 class="title">HERO ARCADE!</h2>
+    <div class="label">1. PICK A GAME</div>
+    <div class="games" id="games"></div>
+    <div class="label">2. PICK A HERO</div>
+    <div class="heroes" id="heroes"></div>
+    <div class="label">3. WHO'S PLAYING?</div>
+    <div class="modes"><div class="bubble sel">VS AI 🤖</div><div class="bubble">VS FRIEND 🧑</div></div>
+    <div class="play">PLAY! ⚡</div>
+  </div>
+  <div class="phone">
+    <div class="gear">⏸</div>
+    <h2 class="title">CONNECT 4!</h2>
+    <div class="score">
+      <div class="pl turn">AURORA BLAZE<b>3</b></div>
+      <div class="pl">VOLT VANGUARD (AI)<b>2</b></div>
+    </div>
+    <div class="pop">YOUR TURN, HERO!</div>
+    <div class="board" id="board"></div>
+    <div class="btns"><div class="bubble">RESTART</div><div class="bubble">QUIT</div></div>
+  </div>
+</div>
+<script>
+const H = [
+  {n:'Volt Vanguard', c:['#ffd400','#1e40ff'], p:'M13 2 4 14h7l-2 8 11-13h-7z'},
+  {n:'Aurora Blaze',  c:['#ff7a1a','#ff2e93'], p:'M12 2c1 5 6 7 6 12a6 6 0 0 1-12 0c0-3 2-4 3-6 1 2 2 2 3-6z'},
+  {n:'Tidecaller',    c:['#19c8c8','#0a6fd6'], p:'M12 2S5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2z'},
+  {n:'Iron Oak',      c:['#3aa655','#7a4a1e'], p:'M4 20C4 9 12 4 20 4c0 8-5 16-16 16z'},
+  {n:'Shadow Lynx',   c:['#8a4dff','#2b1a55'], p:'M2 12Q12 3 22 12Q12 21 2 12zM12 8v8'},
+  {n:'Skybolt',       c:['#5cc8ff','#ffffff'], p:'M3 15Q9 3 21 8Q12 9 10 14Q8 12 3 15z'}
+];
+const emb = (h, s) => `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="${h.c[0]}" stroke="#000" stroke-width="1.5"/><path d="${h.p}" fill="${h.c[1]}" stroke="#000" stroke-width="1" transform="translate(3.6 3.6) scale(.7)"/></svg>`;
+const games = [['⭕','Tic-Tac-Toe'],['🔢','Bingo 5x5'],['🔴','Connect 4'],['🔲','Dots & Boxes'],['🃏','Memory Match']];
+document.getElementById('games').innerHTML = games.map((g,i)=>`<div class="card ${i==2?'sel':''}"><span class="ic">${g[0]}</span>${g[1]}</div>`).join('');
+document.getElementById('heroes').innerHTML = H.map((h,i)=>`<div class="hero ${i==1?'sel':''}">${emb(h)}<br>${h.n}</div>`).join('');
+const rows = ['.......','.......','...B...','..AB...','..BA.A.','.ABABAB'];
+document.getElementById('board').innerHTML = rows.join('').split('').map(c=>`<div class="cell">${c=='A'?emb(H[1]):c=='B'?emb(H[0]):''}</div>`).join('');
+</script>
+</body>
+</html>
