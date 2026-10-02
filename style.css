@@ -1,0 +1,11 @@
+:root { --bg: #fff6fb; --ink: #3a2b5c; --soft: #6e5f8f; --pink: #ff5fa2; --card: #ffffff; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1d1730; --ink: #f3eefe; --soft: #c2b6dd; --pink: #ff8cc0; --card: #2a2242; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 ui-rounded, -apple-system, system-ui, sans-serif; }
+main { max-width: 680px; margin: 0 auto; padding: 40px 16px 64px; }
+h1 { color: var(--pink); font-size: 2.2rem; line-height: 1.2; margin: 0 0 4px; }
+h2 { margin: 32px 0 8px; font-size: 1.3rem; }
+h3 { margin: 20px 0 4px; font-size: 1.05rem; }
+.sub { color: var(--soft); margin: 0 0 24px; }
+a { color: var(--pink); }
+.foot { margin-top: 40px; font-size: 0.95rem; }
