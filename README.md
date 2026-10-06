@@ -9,6 +9,10 @@
   <img alt="Privacy" src="https://img.shields.io/badge/data%20collected-none-brightgreen?style=flat-square">
 </p>
 
+<p align="center">
+  🌐 <a href="https://shruezee.github.io/MiniMingle-Games/">Website</a> · 🔒 <a href="https://shruezee.github.io/MiniMingle-Games/privacy.html">Privacy policy</a> · 🧪 Status: submitted to the App Store (in review)
+</p>
+
 ## What is MiniMingle Games?
 
 MiniMingle Games is a bright, bouncy SwiftUI app that brings five favorite board and paper games to life for kids. A player picks a game, picks a cartoon hero to represent them, and picks an opponent — a friendly computer, or a friend passing the same device back and forth.
