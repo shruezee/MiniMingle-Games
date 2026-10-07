@@ -24,7 +24,7 @@ struct SplashView: View {
             // Same footer as the launch screen, kept above the bottom safe area.
             VStack {
                 Spacer()
-                Text("© 2026 ShruthiRamKum. All rights reserved.")
+                Text("© 2026 Shruezee Studio. All rights reserved.")
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(Theme.ink)
                     .multilineTextAlignment(.center)

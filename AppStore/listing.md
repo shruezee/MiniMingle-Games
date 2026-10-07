@@ -56,7 +56,7 @@ tic tac toe,connect 4,bingo,memory,dots and boxes,board,kids,family,two player,h
 - **Marketing URL:** (leave empty)
 
 ## Copyright
-2026 ShruthiRamKum
+2026 Shruezee Studio
 
 ## Age Rating answers
 Answer **None / No** to every content question (violence, horror, mature themes,

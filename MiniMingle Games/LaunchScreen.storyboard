@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <!-- Copyright footer, pinned above the bottom safe area. -->
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2026 ShruthiRamKum. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cp0-yR-ft1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2026 Shruezee Studio. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cp0-yR-ft1">
                                 <rect key="frame" x="40" y="796" width="313" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.23137254901960785" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

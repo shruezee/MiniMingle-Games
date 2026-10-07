@@ -103,4 +103,4 @@ MiniMingle Games collects no data. Everything — scores, settings, and preferen
 
 ## 📄 License
 
-Copyright © 2026 ShruthiRamKum. All rights reserved.
+Copyright © 2026 Shruezee Studio. All rights reserved.
