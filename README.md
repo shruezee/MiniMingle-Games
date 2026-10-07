@@ -101,6 +101,10 @@ MiniMingle Games/
 
 MiniMingle Games collects no data. Everything — scores, settings, and preferences — stays on the device. See the [privacy policy](https://shruezee.github.io/MiniMingle-Games/privacy.html) for details.
 
+## 👩‍💻 About
+
+Designed and built by **Shruezee Studio**, the app studio of **[Shruthi](https://github.com/shruezee)**, an iOS developer in Sydney. See also [Ashtotra](https://github.com/shruezee/Ashtotra-App) (live on the App Store) and [KindDose](https://github.com/shruezee/KindDose).
+
 ## 📄 License
 
 Copyright © 2026 Shruezee Studio. All rights reserved.
